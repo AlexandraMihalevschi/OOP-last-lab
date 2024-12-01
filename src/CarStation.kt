@@ -1,7 +1,7 @@
 class CarStation(
     private val diningService: Dineable?,
     private val refuelingService: Refuelable,
-    private val queue: Queue<Car>
+    val queue: Queue<Car>
 ) {
     // Adds a car to the queue
     fun addCar(car: Car) {
