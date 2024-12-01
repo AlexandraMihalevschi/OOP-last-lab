@@ -1,14 +1,22 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+    // CarStations and Semaphore setup
+    val gasStation = CarStation(null, object : Refuelable {
+        override fun refuel(carId: String) {
+            println("Refueling Gas car $carId")
+        }
+    }, ArrayQueue())
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+    val electricStation = CarStation(null, object : Refuelable {
+        override fun refuel(carId: String) {
+            println("Refueling Electric car $carId")
+        }
+    }, ArrayQueue())
+
+    val semaphore = Semaphore(gasStation, electricStation)
+
+    // Starting the CarScheduler
+    val carScheduler = CarScheduler(semaphore, "C:\\Users\\Lenovo\\Laboratory_POO\\oop_coure_repo\\Lab3\\queue", 5000L) // Every 5 seconds
+    carScheduler.start()
+
+    Thread.sleep(60000L)
 }
