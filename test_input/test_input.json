@@ -1,5 +1,0 @@
-[
-  { "id": "1", "carType": "GAS", "passengerType": "PEOPLE", "isDining": false, "consumption": 20 },
-  { "id": "2", "carType": "ELECTRIC", "passengerType": "ROBOTS", "isDining": true, "consumption": 30 },
-  { "id": "3", "carType": "GAS", "passengerType": "ROBOTS", "isDining": false, "consumption": 25 }
-]

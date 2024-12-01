@@ -13,10 +13,10 @@ class Semaphore(
     }
 
     fun serveAllStations() {
-        println("Serving Gas Station...")
+        println("   ⛽ Gas Station")
         gasStation.serveCars()
 
-        println("Serving Electric Station...")
+        println("   🪫⚡ Electric Station")
         electricStation.serveCars()
     }
 }

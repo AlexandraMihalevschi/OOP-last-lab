@@ -3,12 +3,12 @@ class CarStation(
     private val refuelingService: Refuelable,
     val queue: Queue<Car>
 ) {
-    // Adds a car to the queue
+    // Add a car to the queue
     fun addCar(car: Car) {
         queue.enqueue(car)
     }
 
-    // Serves all cars in the queue
+    // Serve all cars in the queue
     fun serveCars() {
         while (!queue.isEmpty()) {
             val car = queue.dequeue()
@@ -16,17 +16,17 @@ class CarStation(
             if (car != null) {
                 println("Processing car: ${car.id}")
 
-                // Serve dinner if applicable
+                // Serve dinner
                 if (car.isDining) {
-                    diningService?.serveDinner(car.id)
+                    diningService?.serveDinner(car.id.toString())
                 }
 
                 // Refuel the car
-                refuelingService.refuel(car.id)
+                refuelingService.refuel(car.id.toString())
             } else {
                 println("Encountered a null car in the queue.")
             }
         }
-        println("All cars have been served.")
+        println("No cars in the queue.")
     }
 }
